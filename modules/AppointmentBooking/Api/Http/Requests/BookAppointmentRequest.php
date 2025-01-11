@@ -22,8 +22,8 @@ class BookAppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slotId' => 'required|string',
-            'patientId' => 'required|string',
+            'slotId' => 'required|string|exists:slots,id',
+            'patientId' => 'required|string|exists:users,id',
             'patientName' => 'required|string',
         ];
     }

@@ -12,7 +12,7 @@ class AppointmentController extends Controller
     public function __construct(private BookAppointmentUseCase $bookAppointmentUseCase)
     {}
 
-    public function bookAppointment(BookAppointmentRequest $request)
+    public function create(BookAppointmentRequest $request)
     {
         $appointmentDTO = new AppointmentDTO(
             $request->validated('slotId'),
