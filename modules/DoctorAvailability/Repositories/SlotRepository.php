@@ -3,14 +3,21 @@
 namespace Modules\DoctorAvailability\Repositories;
 
 use Modules\DoctorAvailability\Models\Slot;
+use Modules\DoctorAvailability\Shared\Repositories\SlotRepositoryInterface;
 
-class SlotRepository
+class SlotRepository implements SlotRepositoryInterface
 {
-    public function listAvialableSlots()
+    public function listAvailableSlots()
     {
         return Slot::where('status', 'free')
             ->where('time', '>', now())
             ->orderBy('time')
+            ->get();
+    }
+
+    public function listAllSlots()
+    {
+        return Slot::orderBy('time')
             ->get();
     }
 

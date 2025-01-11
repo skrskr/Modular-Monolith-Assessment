@@ -2,20 +2,17 @@
 
 namespace Modules\DoctorAvailability\Services;
 
-use Modules\DoctorAvailability\Repositories\SlotRepository;
+use Modules\DoctorAvailability\Shared\Repositories\SlotRepositoryInterface;
 
 class SlotService
 {
-    protected $slotRepository;
 
-    public function __construct(SlotRepository $slotRepository)
-    {
-        $this->slotRepository = $slotRepository;
-    }
+    public function __construct(protected SlotRepositoryInterface $slotRepository)
+    {}
 
-    public function listAvialableSlots()
+    public function listAvailableSlots()
     {
-        return $this->slotRepository->listAvialableSlots();
+        return $this->slotRepository->listAvailableSlots();
     }
 
     public function createSlot(array $data)
