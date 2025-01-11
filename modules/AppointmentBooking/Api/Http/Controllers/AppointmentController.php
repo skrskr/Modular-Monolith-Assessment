@@ -12,6 +12,12 @@ class AppointmentController extends Controller
     public function __construct(private BookAppointmentUseCase $bookAppointmentUseCase)
     {}
 
+    /**
+     * Create a new appointment.
+     *
+     * @param \Modules\AppointmentBooking\Api\Http\Requests\BookAppointmentRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function create(BookAppointmentRequest $request)
     {
         $appointmentDTO = new AppointmentDTO(
