@@ -6,6 +6,8 @@ use Modules\AppointmentBooking\Application\DTOs\AppointmentDTO;
 use Modules\AppointmentBooking\Domain\Entities\Appointment;
 use Modules\AppointmentBooking\Domain\Repositories\AppointmentRepositoryInterface;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Event;
+use Modules\AppointmentBooking\Application\Events\AppointmentCreated;
 
 class BookAppointmentUseCase
 {
@@ -23,6 +25,10 @@ class BookAppointmentUseCase
             Carbon::now()->toDateTimeString(),
         );
 
-        return $this->appointmentRepository->create($appointment);
+        $appointment = $this->appointmentRepository->create($appointment);
+
+        Event::dispatch(new AppointmentCreated($appointment));
+
+        return $appointment;
     }
 }
