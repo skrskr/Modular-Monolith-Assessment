@@ -2,10 +2,11 @@
 
 namespace Modules\AppointmentBooking\Infrastructure\Repositories;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\AppointmentBooking\Domain\Entities\Appointment;
-use Modules\AppointmentBooking\Domain\Repositories\AppointmentRepositoryInterface;
 use Modules\AppointmentBooking\Infrastructure\Models\Appointment as AppointmentModel;
+use Modules\AppointmentManagement\Shared\Repositories\AppointmentRepositoryInterface;
 
 class AppointmentRepository implements AppointmentRepositoryInterface
 {
@@ -38,5 +39,20 @@ class AppointmentRepository implements AppointmentRepositoryInterface
             doctorId: $result->doctor_id,
             doctorName: $result->doctor_name
         );
+    }
+
+    public function getUpcomingAppointments(): Collection
+    {
+        return AppointmentModel::get();
+    }
+
+    public function completeAppointment(string $appointmentId): void
+    {
+        AppointmentModel::where('id', $appointmentId)->update(['status' => 'completed']);
+    }
+
+    public function cancelAppointment(string $appointmentId): void
+    {
+        AppointmentModel::where('id', $appointmentId)->update(['status' => 'cancelled']);
     }
 }
