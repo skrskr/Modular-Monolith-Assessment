@@ -3,6 +3,8 @@
 namespace Modules\DoctorAvailability\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\DoctorAvailability\Repositories\SlotRepository;
+use Modules\DoctorAvailability\Shared\Repositories\SlotRepositoryInterface;
 
 class DoctorAvailabilityServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,6 @@ class DoctorAvailabilityServiceProvider extends ServiceProvider
         $this->app->register(RouteServiceProvider::class);
 
         // bind to container
-        // $this->app->bind(ExampleRepositoryInterface::class, ExampleRepository::class);
+        $this->app->bind(SlotRepositoryInterface::class, SlotRepository::class);
     }
 }
