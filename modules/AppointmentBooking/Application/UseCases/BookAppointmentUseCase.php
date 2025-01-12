@@ -26,8 +26,8 @@ class BookAppointmentUseCase
         );
 
         $appointment = $this->appointmentRepository->create($appointment);
-
-        Event::dispatch(new AppointmentCreated($appointment));
+        $appointmentWithDoctor = $this->appointmentRepository->findWithDoctor($appointment->getId());
+        Event::dispatch(new AppointmentCreated($appointmentWithDoctor));
 
         return $appointment;
     }
