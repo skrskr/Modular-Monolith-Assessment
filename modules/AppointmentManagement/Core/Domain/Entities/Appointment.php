@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\AppointmentBooking\Domain\Entities;
+namespace Modules\AppointmentManagement\Core\Domain\Entities;
 
 class Appointment
 {

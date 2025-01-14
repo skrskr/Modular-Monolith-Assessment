@@ -3,7 +3,7 @@
 namespace Modules\AppointmentManagement\Core\Services;
 
 use Illuminate\Support\Collection;
-use Modules\AppointmentManagement\Shared\Repositories\AppointmentRepositoryInterface;
+use Modules\AppointmentBooking\Shared\Repositories\AppointmentRepositoryInterface;
 
 class AppointmentService
 {
