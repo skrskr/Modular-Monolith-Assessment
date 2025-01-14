@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\AppointmentManagement\Shared\Repositories;
+namespace Modules\AppointmentBooking\Shared\Repositories;
 
 use Illuminate\Support\Collection;
 use Modules\AppointmentBooking\Domain\Entities\Appointment;

@@ -2,11 +2,12 @@
 
 namespace Modules\AppointmentBooking\Infrastructure\Repositories;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\AppointmentBooking\Domain\Entities\Appointment;
 use Modules\AppointmentBooking\Infrastructure\Models\Appointment as AppointmentModel;
-use Modules\AppointmentManagement\Shared\Repositories\AppointmentRepositoryInterface;
+use Modules\AppointmentBooking\Shared\Repositories\AppointmentRepositoryInterface;
 
 class AppointmentRepository implements AppointmentRepositoryInterface
 {
@@ -22,7 +23,7 @@ class AppointmentRepository implements AppointmentRepositoryInterface
         $result = DB::table('appointments')
             ->join('slots', 'appointments.slot_id', '=', 'slots.id')
             ->where('appointments.id', $appointmentId)
-            ->select('appointments.*', 'slots.doctor_id', 'slots.doctor_name', 'slot.time')
+            ->select('appointments.*', 'slots.doctor_id', 'slots.time')
             ->first();
 
         if (!$result) {
@@ -37,13 +38,15 @@ class AppointmentRepository implements AppointmentRepositoryInterface
             reservedAt: $result->reserved_at,
             slotTime: $result->time,
             doctorId: $result->doctor_id,
-            doctorName: $result->doctor_name
+            doctorName: $result->doctor_name ?? 'Unknown'
         );
     }
 
     public function getUpcomingAppointments(): Collection
     {
-        return AppointmentModel::get();
+        return AppointmentModel::join('slots', 'appointments.slot_id', '=', 'slots.id')
+            ->where('slots.time', '>', Carbon::now())
+            ->get();
     }
 
     public function completeAppointment(string $appointmentId): void

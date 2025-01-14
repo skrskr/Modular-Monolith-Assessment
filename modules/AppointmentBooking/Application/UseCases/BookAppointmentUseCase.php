@@ -4,10 +4,10 @@ namespace Modules\AppointmentBooking\Application\UseCases;
 
 use Modules\AppointmentBooking\Application\DTOs\AppointmentDTO;
 use Modules\AppointmentBooking\Domain\Entities\Appointment;
-use Modules\AppointmentBooking\Domain\Repositories\AppointmentRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
 use Modules\AppointmentBooking\Application\Events\AppointmentCreated;
+use Modules\AppointmentBooking\Shared\Repositories\AppointmentRepositoryInterface;
 
 class BookAppointmentUseCase
 {
@@ -23,6 +23,7 @@ class BookAppointmentUseCase
             $appointmentDTO->patientId,
             $appointmentDTO->patientName,
             Carbon::now()->toDateTimeString(),
+            status: 'reserved',
         );
 
         $appointment = $this->appointmentRepository->create($appointment);

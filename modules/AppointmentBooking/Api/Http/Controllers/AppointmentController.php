@@ -21,9 +21,9 @@ class AppointmentController extends Controller
     public function create(BookAppointmentRequest $request)
     {
         $appointmentDTO = new AppointmentDTO(
-            $request->validated('slotId'),
-            $request->validated('patientId'),
-            $request->validated('patientName'),
+            $request->validated('slot_id'),
+            $request->validated('patient_id'),
+            $request->validated('patient_name'),
         );
 
         $appointment = $this->bookAppointmentUseCase->execute($appointmentDTO);
