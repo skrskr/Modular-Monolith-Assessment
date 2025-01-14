@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignUuid('patient_id')->constrained('users');
             $table->string('patient_name');
             $table->dateTime('reserved_at');
+            $table->enum('status', ['reserved', 'cancelled', 'completed'])->default('reserved');
             $table->timestamps();
         });
     }
