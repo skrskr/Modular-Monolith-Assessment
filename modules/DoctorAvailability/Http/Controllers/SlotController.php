@@ -24,7 +24,7 @@ class SlotController extends Controller
         return response()->json($slots);
     }
 
-    public function store(CreateSlotRequest $request)
+    public function create(CreateSlotRequest $request)
     {
         $slot = $this->slotService->createSlot($request->validated());
 

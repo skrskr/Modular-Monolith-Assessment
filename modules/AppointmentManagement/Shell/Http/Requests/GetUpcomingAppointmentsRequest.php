@@ -1,10 +1,9 @@
 <?php
 
-namespace Modules\AppointmentBooking\Api\Http\Requests;
-
+namespace Modules\AppointmentManagement\Shell\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BookAppointmentRequest extends FormRequest
+class GetUpcomingAppointmentsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +21,6 @@ class BookAppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slot_id' => 'required|string|exists:slots,id',
-            'patient_id' => 'required|string|exists:users,id',
-            'patient_name' => 'required|string',
         ];
     }
 }

@@ -3,8 +3,8 @@
 namespace Modules\AppointmentBooking\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\AppointmentBooking\Domain\Repositories\AppointmentRepositoryInterface;
 use Modules\AppointmentBooking\Infrastructure\Repositories\AppointmentRepository;
+use Modules\AppointmentBooking\Shared\Repositories\AppointmentRepositoryInterface;
 
 class AppointmentBookingServiceProvider extends ServiceProvider
 {

@@ -11,7 +11,7 @@ class AppointmentManagementServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Shell/Database/Migrations');
         $this->mergeConfigFrom(__DIR__.'/../Config/config.php', 'appointment-management');
         $this->app->register(RouteServiceProvider::class);
 

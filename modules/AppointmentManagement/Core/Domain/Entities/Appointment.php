@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\AppointmentBooking\Domain\Entities;
+namespace Modules\AppointmentManagement\Core\Domain\Entities;
 
 class Appointment
 {
@@ -13,7 +13,6 @@ class Appointment
         private ?string $slotTime = null,
         private ?string $doctorId = null,
         private ?string $doctorName = null,
-        private ?string $status = null,
     ) {}
 
     public function getId(): string
@@ -54,11 +53,6 @@ class Appointment
     public function getDoctorName(): ?string
     {
         return $this->doctorName;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
     }
 
     public function setId(string $id): static
@@ -109,12 +103,6 @@ class Appointment
         return $this;
     }
 
-    public function setStatus(string $status): static
-    {
-        $this->status = $status;
-        return $this;
-    }
-
     public function toArray(): array
     {
         return [
@@ -125,7 +113,6 @@ class Appointment
             'reserved_at' => $this->reservedAt,
             'doctor_id' => $this->doctorId,
             'doctor_name' => $this->doctorName,
-            'status' => $this->status,
         ];
     }
 }
