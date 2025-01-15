@@ -44,7 +44,8 @@ class AppointmentRepository implements AppointmentRepositoryInterface
 
     public function getUpcomingAppointments(): Collection
     {
-        return AppointmentModel::join('slots', 'appointments.slot_id', '=', 'slots.id')
+        return AppointmentModel::select('appointments.*', 'slots.doctor_id', 'slots.time')
+            ->join('slots', 'appointments.slot_id', '=', 'slots.id')
             ->where('slots.time', '>', Carbon::now())
             ->get();
     }
