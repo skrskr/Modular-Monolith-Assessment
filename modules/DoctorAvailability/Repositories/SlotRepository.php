@@ -25,4 +25,9 @@ class SlotRepository implements SlotRepositoryInterface
     {
         return Slot::create($data);
     }
+
+    public function updateSlotStatus(string $slotId, string $status)
+    {
+        return Slot::where('id', $slotId)->update(['status' => $status]);
+    }
 }

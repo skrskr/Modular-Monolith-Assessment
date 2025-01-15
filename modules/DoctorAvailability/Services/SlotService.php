@@ -19,4 +19,9 @@ class SlotService
     {
         return $this->slotRepository->createSlot($data);
     }
+
+    public function updateSlotStatus(string $slotId, string $status)
+    {
+        return $this->slotRepository->updateSlotStatus($slotId, $status);
+    }
 }
