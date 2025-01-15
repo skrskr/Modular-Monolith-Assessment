@@ -13,4 +13,6 @@ interface SlotRepositoryInterface
     public function updateSlotStatus(string $slotId, string $status);
 
     public function checkSlotAvailability(string $slotId);
+
+    public function checkSlotExists(string $time);
 }

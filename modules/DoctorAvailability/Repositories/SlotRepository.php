@@ -36,4 +36,9 @@ class SlotRepository implements SlotRepositoryInterface
         return Slot::where('id', $slotId)->where('status', 'free')
             ->where('time', '>', now())->first();
     }
+
+    public function checkSlotExists(string $time)
+    {
+        return Slot::where('time', $time)->first();
+    }
 }
