@@ -10,4 +10,5 @@ interface SlotRepositoryInterface
 
     public function listAvailableSlots();
 
+    public function reserveSlot(int $id);
 }

@@ -2,7 +2,11 @@
 
 namespace Modules\DoctorAvailability\Providers;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Modules\AppointmentBooking\Application\Events\AppointmentCreated;
+use Modules\DoctorAvailability\Listeners\BookSlot;
+use Modules\DoctorAvailability\Listeners\ReserveSlot;
 use Modules\DoctorAvailability\Repositories\SlotRepository;
 use Modules\DoctorAvailability\Shared\Repositories\SlotRepositoryInterface;
 
@@ -19,5 +23,10 @@ class DoctorAvailabilityServiceProvider extends ServiceProvider
 
         // bind to container
         $this->app->bind(SlotRepositoryInterface::class, SlotRepository::class);
+
+        Event::listen(
+            AppointmentCreated::class,
+            [ReserveSlot::class, 'handle']
+        );
     }
 }

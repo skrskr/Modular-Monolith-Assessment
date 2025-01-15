@@ -7,8 +7,7 @@ use Modules\DoctorAvailability\Shared\Repositories\SlotRepositoryInterface;
 class SlotService
 {
 
-    public function __construct(protected SlotRepositoryInterface $slotRepository)
-    {}
+    public function __construct(protected SlotRepositoryInterface $slotRepository) {}
 
     public function listAvailableSlots()
     {
@@ -18,5 +17,10 @@ class SlotService
     public function createSlot(array $data)
     {
         return $this->slotRepository->createSlot($data);
+    }
+
+    public function reservedSlot(int $id)
+    {
+        return $this->slotRepository->reserveSlot($id);
     }
 }
