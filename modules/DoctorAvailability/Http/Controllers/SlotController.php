@@ -26,6 +26,10 @@ class SlotController extends Controller
 
     public function create(CreateSlotRequest $request)
     {
+        if($this->slotService->checkSlotExists($request->validated('time'))) {
+            return response()->json(['message' => 'Slot is already exists'], 400);
+        }
+
         $slot = $this->slotService->createSlot($request->validated());
 
         return response()->json($slot, 201);

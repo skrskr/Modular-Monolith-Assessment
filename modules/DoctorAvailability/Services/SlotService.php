@@ -24,4 +24,9 @@ class SlotService
     {
         return $this->slotRepository->updateSlotStatus($slotId, $status);
     }
+
+    public function checkSlotExists(string $time)
+    {
+        return $this->slotRepository->checkSlotExists($time);
+    }
 }

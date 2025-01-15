@@ -5,11 +5,15 @@ namespace Modules\AppointmentBooking\Api\Http\Controllers;
 use Modules\AppointmentBooking\Application\UseCases\BookAppointmentUseCase;
 use Modules\AppointmentBooking\Api\Http\Requests\BookAppointmentRequest;
 use Modules\AppointmentBooking\Application\DTOs\AppointmentDTO;
+use Modules\AppointmentBooking\Application\UseCases\CheckSlotAvailabilityUseCase;
 
 class AppointmentController extends Controller
 {
 
-    public function __construct(private BookAppointmentUseCase $bookAppointmentUseCase)
+    public function __construct(
+        private BookAppointmentUseCase $bookAppointmentUseCase,
+        private CheckSlotAvailabilityUseCase $checkSlotAvailabilityUseCase,
+    )
     {}
 
     /**
@@ -25,6 +29,10 @@ class AppointmentController extends Controller
             $request->validated('patient_id'),
             $request->validated('patient_name'),
         );
+
+        if(!$this->checkSlotAvailabilityUseCase->execute($appointmentDTO->slotId)) {
+            return response()->json(['message' => 'Slot is not available'], 400);
+        }
 
         $appointment = $this->bookAppointmentUseCase->execute($appointmentDTO);
 
