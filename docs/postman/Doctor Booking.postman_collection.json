@@ -1,0 +1,741 @@
+{
+	"info": {
+		"_postman_id": "64928ddf-2da0-4138-a032-27565acbef69",
+		"name": "Doctor Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12697718",
+		"_collection_link": "https://bit68-team.postman.co/workspace/stc-event-app~deefdc71-1ec3-429a-be69-f2fe1316f3f9/collection/12697718-64928ddf-2da0-4138-a032-27565acbef69?action=share&source=collection_link&creator=12697718"
+	},
+	"item": [
+		{
+			"name": "Doctor Avaliablity",
+			"item": [
+				{
+					"name": "Get my slots",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/doctor-availability/slots",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"doctor-availability",
+								"slots"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get my slots",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/doctor-availability/slots",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"doctor-availability",
+										"slots"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.16"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 20:31:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"9e020e6e-bed4-4089-addf-c0a0c2cb45a1\",\n        \"time\": \"2025-01-20 08:00:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e091234\",\n        \"status\": \"free\",\n        \"cost\": \"200.000\",\n        \"created_at\": \"2025-01-19T19:58:12.000000Z\",\n        \"updated_at\": \"2025-01-19T19:58:12.000000Z\",\n        \"deleted_at\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add slot",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e091234\",\n    \"time\": \"2025-01-20 08:00\",\n    \"cost\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/doctor-availability/slots",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"doctor-availability",
+								"slots"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add slot",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e091234\",\n    \"time\": \"2025-01-20 08:00\",\n    \"cost\": 200\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/doctor-availability/slots",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"doctor-availability",
+										"slots"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.16"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 19:58:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"time\": \"2025-01-20 08:00\",\n    \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e091234\",\n    \"cost\": 200,\n    \"id\": \"9e020e6e-bed4-4089-addf-c0a0c2cb45a1\",\n    \"updated_at\": \"2025-01-19T19:58:12.000000Z\",\n    \"created_at\": \"2025-01-19T19:58:12.000000Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Appointment Booking",
+			"item": [
+				{
+					"name": "list available slots",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/appointment-booking/slots",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"appointment-booking",
+								"slots"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list available slots",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/appointment-booking/slots",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointment-booking",
+										"slots"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Jan 2025 20:33:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n        \"time\": \"2025-01-15 07:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n        \"status\": \"free\",\n        \"cost\": 200,\n        \"created_at\": \"2025-01-14T20:18:21.000000Z\",\n        \"updated_at\": \"2025-01-14T20:18:21.000000Z\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": \"9df806be-e678-43c7-af70-d7e331946be0\",\n        \"time\": \"2025-01-15 08:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n        \"status\": \"free\",\n        \"cost\": 200,\n        \"created_at\": \"2025-01-14T20:18:26.000000Z\",\n        \"updated_at\": \"2025-01-14T20:18:26.000000Z\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": \"9df806f2-efc8-411f-bc02-af1938379159\",\n        \"time\": \"2025-01-15 08:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n        \"status\": \"free\",\n        \"cost\": 200,\n        \"created_at\": \"2025-01-14T20:19:00.000000Z\",\n        \"updated_at\": \"2025-01-14T20:19:00.000000Z\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": \"9df806f4-0345-461b-8247-cd460963e5ff\",\n        \"time\": \"2025-01-15 08:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n        \"status\": \"free\",\n        \"cost\": 200,\n        \"created_at\": \"2025-01-14T20:19:01.000000Z\",\n        \"updated_at\": \"2025-01-14T20:19:01.000000Z\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": \"9df806f4-d7f1-4563-be71-94b9f1de967b\",\n        \"time\": \"2025-01-15 08:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n        \"status\": \"free\",\n        \"cost\": 200,\n        \"created_at\": \"2025-01-14T20:19:01.000000Z\",\n        \"updated_at\": \"2025-01-14T20:19:01.000000Z\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": \"9df806ac-94bc-4d61-8aac-69a678de020d\",\n        \"time\": \"2025-01-15 10:00\",\n        \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n        \"status\": \"free\",\n        \"cost\": 200,\n        \"created_at\": \"2025-01-14T20:18:14.000000Z\",\n        \"updated_at\": \"2025-01-14T20:18:14.000000Z\",\n        \"deleted_at\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Appointment (booking)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slot_id\": \"9e020e6e-bed4-4089-addf-c0a0c2cb45a\",\n    \"patient_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n    \"patient_name\": \"Mohamed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/appointment-booking/appointments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"appointment-booking",
+								"appointments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Appointment (booking)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"slot_id\": \"9e020e6e-bed4-4089-addf-c0a0c2cb45a1\",\n    \"patient_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n    \"patient_name\": \"Mohamed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/appointment-booking/appointments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointment-booking",
+										"appointments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.16"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 20:34:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9e021b44-fc75-45c0-8aac-a1f6c85633bc\",\n    \"slot_id\": \"9e020e6e-bed4-4089-addf-c0a0c2cb45a1\",\n    \"patient_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n    \"patient_name\": \"Mohamed\",\n    \"reserved_at\": \"2025-01-19 20:34:06\",\n    \"doctor_id\": null,\n    \"doctor_name\": null,\n    \"status\": \"reserved\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Appointment Management",
+			"item": [
+				{
+					"name": "list upcoming appointments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/appointment-booking/slots",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"appointment-booking",
+								"slots"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list upcoming appointments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/appointment-management/appointments/upcoming",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointment-management",
+										"appointments",
+										"upcoming"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 14 Jan 2025 20:42:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"appointments\": [\n        {\n            \"id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"slot_id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"patient_id\": \"9df7fce0-589f-44f9-83b1-2621fe3793e1\",\n            \"patient_name\": \"Mohamed\",\n            \"reserved_at\": \"2025-01-14 20:27:03\",\n            \"status\": \"free\",\n            \"created_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"updated_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"time\": \"2025-01-15 07:00\",\n            \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n            \"cost\": 200,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"slot_id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"patient_id\": \"9df7fce0-589f-44f9-83b1-2621fe3793e1\",\n            \"patient_name\": \"Mohamed\",\n            \"reserved_at\": \"2025-01-14 20:28:45\",\n            \"status\": \"free\",\n            \"created_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"updated_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"time\": \"2025-01-15 07:00\",\n            \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n            \"cost\": 200,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"slot_id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"patient_id\": \"9df7fce0-589f-44f9-83b1-2621fe3793e1\",\n            \"patient_name\": \"Mohamed\",\n            \"reserved_at\": \"2025-01-14 20:28:46\",\n            \"status\": \"free\",\n            \"created_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"updated_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"time\": \"2025-01-15 07:00\",\n            \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n            \"cost\": 200,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"slot_id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"patient_id\": \"9df7fce0-589f-44f9-83b1-2621fe3793e1\",\n            \"patient_name\": \"Mohamed\",\n            \"reserved_at\": \"2025-01-14 20:29:13\",\n            \"status\": \"free\",\n            \"created_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"updated_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"time\": \"2025-01-15 07:00\",\n            \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n            \"cost\": 200,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"slot_id\": \"9df806b7-7083-4e6e-a036-2d372a395bc5\",\n            \"patient_id\": \"9df7fce0-589f-44f9-83b1-2621fe3793e1\",\n            \"patient_name\": \"Mohamed\",\n            \"reserved_at\": \"2025-01-14 20:31:55\",\n            \"status\": \"free\",\n            \"created_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"updated_at\": \"2025-01-14T20:18:21.000000Z\",\n            \"time\": \"2025-01-15 07:00\",\n            \"doctor_id\": \"9df7fc22-a988-4084-9005-9e562e097829\",\n            \"cost\": 200,\n            \"deleted_at\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Mark appointment completed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/appointment-management/appointments/:appointment_id/complete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"appointment-management",
+								"appointments",
+								":appointment_id",
+								"complete"
+							],
+							"variable": [
+								{
+									"key": "appointment_id",
+									"value": "9e021b44-fc75-45c0-8aac-a1f6c85633bc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Mark appointment completed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/appointment-management/appointments/:appointment_id/complete",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointment-management",
+										"appointments",
+										":appointment_id",
+										"complete"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "9e021b44-fc75-45c0-8aac-a1f6c85633bc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.16"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 20:36:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Appointment completed successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Mark appointment canceled",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/appointment-management/appointments/:appointment_id/cancel",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"appointment-management",
+								"appointments",
+								":appointment_id",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "appointment_id",
+									"value": "9e021b44-fc75-45c0-8aac-a1f6c85633bc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Mark appointment canceled",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/appointment-management/appointments/:appointment_id/cancel",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointment-management",
+										"appointments",
+										":appointment_id",
+										"cancel"
+									],
+									"variable": [
+										{
+											"key": "appointment_id",
+											"value": "9e021b44-fc75-45c0-8aac-a1f6c85633bc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.16"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Jan 2025 20:36:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Appointment cancelled successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
