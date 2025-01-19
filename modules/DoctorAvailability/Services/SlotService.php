@@ -15,6 +15,11 @@ class SlotService
         return $this->slotRepository->listAvailableSlots();
     }
 
+    public function listAllSlots()
+    {
+        return $this->slotRepository->listAllSlots();
+    }
+
     public function createSlot(array $data)
     {
         return $this->slotRepository->createSlot($data);

@@ -17,9 +17,9 @@ class SlotController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function listAvailableSlots()
+    public function listAllSlots()
     {
-        $slots = $this->slotService->listAvailableSlots();
+        $slots = $this->slotService->listAllSlots();
 
         return response()->json($slots);
     }
