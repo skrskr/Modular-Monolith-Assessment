@@ -17,7 +17,7 @@ class DoctorSeeder extends Seeder
     public function run(): void
     {
         Doctor::create([
-            'id' => '9df7fc22-a988-4084-9005-9e562e097829',
+            'id' => '9df7fc22-a988-4084-9005-9e562e091234',
             'name' => 'John Doe',
             'email' => 'john.doe@example.com',
             'password' => Hash::make('password'),
